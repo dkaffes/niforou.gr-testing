@@ -1,0 +1,287 @@
+/**************************/
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**************************/
+/* Custom properties (variables) for colors, font-weights, font-sizes, spacing */
+
+:root {
+  --clr-bg: #3f625b;
+  --clr-bg-tint: #5f867f;
+  /* --clr-bg-shade: #2c4641; */
+  --clr-bg-shade: hsla(168, 23%, 22%, 0.85);
+  --clr-heading: #ffffff;
+  --clr-text: #f9f9f9;
+  --clr-link: #bb5b27;
+  --clr-link-tint: #bb6a3e;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fs-xsm: 0.75rem;
+  --fs-sm: 1rem;
+  --fs-md: 1.4rem;
+  --fs-lg: 2rem;
+  --fs-xl: 2.5rem;
+  --sp-xsm: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.5rem;
+  --sp-lg: 2rem;
+  --sp-xl: 4rem;
+}
+
+/**************************/
+/* Local Fonts */
+/* google-webfonts-helper */
+/* A Hassle-Free Way to Self-Host Google Fonts */
+/* https://gwfh.mranftl.com/fonts */
+
+/* inter-regular - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/inter-v18-greek_latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/inter-v18-greek_latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ======================= */
+/* Reusable components */
+/* ======================= */
+.d-grid {
+  display: grid;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-ai-c {
+  align-items: center;
+}
+
+.flex-jc-c {
+  justify-content: center;
+}
+
+.wrapper {
+  padding: var(--sp-md);
+  background-color: var(--clr-bg-shade);
+  border-radius: 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* ======================= */
+/* General styling */
+/* ======================= */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--clr-bg);
+  background-repeat: no-repeat;
+  background-image: url("images/tree-bg.svg");
+  background-position: left 135% bottom 2%;
+  background-size: 80% auto;
+  color: var(--clr-text);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: var(--fs-sm);
+  padding: var(--sp-md);
+  gap: var(--sp-lg);
+}
+
+/* Image */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Typography */
+.h-1,
+.h-2,
+.h-3 {
+  font-weight: var(--fw-bold);
+  color: var(--clr-heading);
+}
+
+.h-1,
+.h-2,
+.hero-subheading {
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+
+.hero-subheading {
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.h-1 {
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+  margin-bottom: var(--sp-xl);
+}
+
+.h-2 {
+  font-size: var(--fs-lg);
+  line-height: 1.2;
+  margin-bottom: var(--sp-xsm);
+}
+
+.h-3 {
+  letter-spacing: 0.5px;
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+
+/* Button */
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #bb5b27, #bb6a3e);
+  color: var(--clr-text);
+  padding: 0.8rem 1.6rem;
+  border-color: transparent;
+  border-radius: 25px;
+  box-shadow: 0 10px 15px 0 rgb(95, 134, 127, 0.2);
+  transition: all 200ms;
+
+  &:hover,
+  &:active {
+    background-image: linear-gradient(to right, #bb6a3e, #bb5b27);
+  }
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--clr-bg-tint);
+}
+
+.btn-box {
+  gap: var(--sp-xsm);
+}
+
+.btn-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+/* List */
+.list {
+  list-style-position: inside;
+}
+
+.list li {
+  padding-inline: var(--sp-sm);
+}
+
+/* Anchor link */
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-weight: var(--fw-bold);
+  border-bottom: 2px solid var(--clr-link);
+  padding-bottom: 1px;
+  transition: all 0.25s;
+}
+
+.link:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22; */
+  /* outline-offset: 2px; */
+  box-shadow: 0 0 0 0.2rem var(--clr-link-tint);
+  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.link:hover,
+.link:active {
+  color: var(--clr-link);
+  border-bottom: 2px solid transparent;
+}
+
+/* ======================= */
+/* Sitewide styling */
+/* ======================= */
+
+/* Header */
+.logo {
+  height: 6rem;
+}
+
+/* Main and Footer max-width */
+.main,
+.footer {
+  max-width: 38.75rem; /* 620px */
+}
+
+/* Main */
+.main {
+  gap: var(--sp-md);
+}
+
+/* Footer */
+.footer {
+  background-color: grey;
+  height: 5rem;
+}
+.contact-box {
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-sm);
+}
+
+.contact-box-item {
+  height: 5rem;
+  background-color: lightcoral;
+}
+
+/* ======================= */
+/* Homepage */
+/* ======================= */
+
+.section-hero {
+  background-image: url(/images/office-interior-portrait.jpg);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.7) 30%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(/images/office-interior-portrait.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  padding: var(--sp-md);
+  border-radius: 10px;
+  gap: var(--sp-xl);
+}
+
+.section-bio {
+  grid-template-columns: 1fr;
+  gap: var(--sp-sm);
+}
