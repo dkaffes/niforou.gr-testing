@@ -163,13 +163,10 @@ p {
   cursor: pointer;
   display: inline-block;
   width: fit-content;
-  font-family: inherit;
-  font-size: inherit;
   text-decoration: none;
   background-image: linear-gradient(to right, #bb5b27, #bb6a3e);
   color: var(--clr-text);
   padding: 0.8rem 1.6rem;
-  border-color: transparent;
   border-radius: 25px;
   box-shadow: 0 10px 15px 0 rgb(95, 134, 127, 0.2);
   transition: all 200ms;
@@ -190,15 +187,9 @@ p {
 }
 
 /* Icon */
-.btn-icon {
+.icon {
   width: 1.5rem;
   height: 1.5rem;
-  flex-shrink: 0;
-}
-
-.icon {
-  width: 2rem;
-  height: 2rem;
   flex-shrink: 0;
 }
 
@@ -261,8 +252,8 @@ p {
 
 /* Footer */
 .footer {
-  background-color: grey;
-  height: 5rem;
+  text-align: center;
+  font-size: var(--fs-xsm);
 }
 
 /* ======================= */
@@ -282,7 +273,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* height: 65vh; */
+  min-height: 65vh;
   padding: var(--sp-md);
   border-radius: 10px;
   gap: var(--sp-xl);
@@ -309,7 +300,7 @@ p {
   box-shadow: 0 0 0 0.05rem var(--clr-bg-tint);
 }
 
-.item-content {
+.contact-item-content {
   gap: var(--sp-sm);
 }
 
@@ -317,4 +308,8 @@ p {
   margin-block-start: var(--sp-xsm);
   /* padding-inline: 0.4rem; fix this!!! */
   transition: all 200ms;
+}
+
+.inline-block {
+  display: inline-block;
 }
