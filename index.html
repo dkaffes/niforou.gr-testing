@@ -32,18 +32,22 @@
   <body class="d-flex flex-col flex-ai-c">
     <header>
       <a href="/">
-        <img
-          class="logo"
-          src="images/logo.png"
-          alt="Μαρία Νιφόρου - Ψυχολόγος MSc - Ψυχοθεραπεύτρια - Λογότυπο"
-        />
+        <picture>
+          <source media="(width <= 40rem)" srcset="images/logo-portrait.png" />
+          <source media="(width >= 40rem)" srcset="images/logo-landscape.png" />
+          <img
+            class="logo"
+            src="images/logo-landscape.png"
+            alt="Μαρία Νιφόρου - Ψυχολόγος MSc - Ψυχοθεραπεύτρια - Λογότυπο"
+          />
+        </picture>
       </a>
     </header>
 
     <main class="main d-flex flex-col flex-ai-c">
-      <section class="section-hero d-flex flex-col">
+      <section class="section-hero d-flex flex-col w-100">
         <h1 class="h-1">Πιάστε την άκρη του νήματος</h1>
-        <p class="hero-subheading">
+        <p class="subheading">
           Καλωσήρθατε σε ένα ασφαλές περιβάλλον, όπου μαζί μου μπορείτε να
           διερευνήσετε τις σκέψεις και τα συναισθήματά σας.
         </p>
@@ -55,15 +59,17 @@
         </a>
       </section>
       <section class="section-bio d-grid">
-        <div class="wrapper bio-image-box">
+        <div class="bio-image-box">
           <img
-            src="/images/maria-niforou-mobile.jpg"
+            src="/images/maria-niforou-mobile.webp"
             alt="Κοντινό πλάνο της Ψυχολόγου Μαρίας Νιφόρου. Είναι χαμογελαστή και καθισμένη σταυροπόδι στον καναπέ του γραφείου της."
             class="image-box-image"
+            width="700"
+            height="872"
           />
         </div>
         <div class="wrapper bio-text-box">
-          <h2 class="h-2">Ποια είμαι</h2>
+          <h2 class="h-2 center-txt">Ποια είμαι</h2>
           <p>
             Ονομάζομαι Μαρία Νιφόρου. Είμαι ψυχολόγος με άδεια ασκήσεως
             επαγγέλματος (αριθμός αδείας: 192-09/01/2009) και ψυχοθεραπεύτρια.
@@ -100,43 +106,43 @@
         </div>
       </section>
       <section class="section-services w-100">
-        <div class="wrapper">
-          <h2 class="h-2">Υπηρεσίες</h2>
+        <div class="wrapper d-flex flex-col">
+          <h2 class="h-2 center-txt">Υπηρεσίες</h2>
           <p>Ψυχοθεραπευτικά τα ενδιαφέροντά μου αφορούν σε:</p>
           <ul class="list">
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>διαταραχές διάθεσης</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>αγχώδεις διαταραχές</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>διαταραχές προσωπικότητας</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>ψυχαναγκασμούς – καταναγκασμούς</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>κρίσεις πανικού</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>φοβίες</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>συζυγικές και συντροφικές σχέσεις</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>διεκδικητική συμπεριφορά</span>
             </li>
-            <li class="d-flex flex-ai-st">
+            <li class="list-item">
               <ion-icon class="icon" name="checkmark-outline"></ion-icon
               ><span>αυτογνωσία, αυτοεκτίμηση και προσωπική ανάπτυξη</span>
             </li>
@@ -151,9 +157,9 @@
       </section>
       <section class="section-contact w-100">
         <div class="wrapper">
-          <h2 class="h-2">Επικοινωνία</h2>
+          <h2 class="h-2 center-txt">Επικοινωνία</h2>
           <div class="contact-box d-grid">
-            <div class="contact-box-item">
+            <div class="contact-address contact-box-item">
               <div class="contact-item-content d-flex flex-ai-st">
                 <ion-icon class="icon" name="location-outline"></ion-icon>
                 <div>
@@ -171,7 +177,7 @@
                   <h3 class="heading-3">Τηλέφωνα</h3>
                   <p class="contact-subheading">
                     <a class="link" href="tel:2411812032">2411 812 032</a> &
-                    <a class="link inline-block" href="tel:6936974173"
+                    <a class="link inline-blk" href="tel:6936974173"
                       >693 697 4173</a
                     >
                   </p>
@@ -196,7 +202,7 @@
       </section>
     </main>
 
-    <footer class="footer w-100">
+    <footer class="footer center-txt w-100">
       <div class="wrapper">
         <a class="link" href="/politiki-aporritou.html">Πολιτική Απορρήτου</a>
       </div>

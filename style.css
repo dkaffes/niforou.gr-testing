@@ -11,26 +11,29 @@
 /* Custom properties (variables) for colors, font-weights, font-sizes, spacing */
 
 :root {
-  --clr-bg: #3f625b;
-  --clr-bg-tint: #5f867f;
+  --clr-bg: hsl(168, 22%, 32%);
+  --clr-bg-tint: hsl(168, 22%, 42%);
   /* --clr-bg-shade: #2c4641; */
-  --clr-bg-shade: hsla(168, 23%, 22%, 0.85);
-  --clr-heading: #ffffff;
-  --clr-text: #f9f9f9;
-  --clr-link: #bb5b27;
-  --clr-link-tint: #bb6a3e;
+  --clr-bg-shade-1: hsla(168, 22%, 22%, 85%);
+  --clr-bg-shade-2: hsla(168, 22%, 22%, 95%);
+  /* --clr-bx-shadow: hsla(169, 17%, 45%, 0.2); */
+  --clr-box-shadow: hsla(168, 22%, 22%, 25%);
+  --clr-heading: hsl(0, 0%, 90%);
+  --clr-text: hsl(0, 0%, 80%);
+  --clr-link: hsl(21, 65%, 45%);
+  --clr-link-tint: hsl(21, 65%, 55%);
   --fw-regular: 400;
   --fw-bold: 700;
   --fs-xsm: 0.75rem;
   --fs-sm: 1rem;
-  --fs-md: 1.4rem;
-  --fs-lg: 2rem;
-  --fs-xl: 2.5rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2.25rem;
   --sp-xsm: 0.5rem;
   --sp-sm: 1rem;
   --sp-md: 1.5rem;
   --sp-lg: 2rem;
-  --sp-xl: 4rem;
+  --sp-xl: 3.5rem;
 }
 
 /**************************/
@@ -85,12 +88,20 @@
 
 .wrapper {
   padding: var(--sp-md);
-  background-color: var(--clr-bg-shade);
+  background-color: var(--clr-bg-shade-1);
   border-radius: 10px;
 }
 
 .w-100 {
   width: 100%;
+}
+
+.center-txt {
+  text-align: center;
+}
+
+.inline-blk {
+  display: inline-block;
 }
 
 /* ======================= */
@@ -127,8 +138,7 @@ img {
 }
 
 .h-1,
-.h-2,
-.hero-subheading {
+.h-2 {
   letter-spacing: -0.5px;
   text-wrap: balance;
 }
@@ -136,26 +146,33 @@ img {
 .h-1 {
   font-size: var(--fs-xl);
   line-height: 1.1;
-  margin-bottom: var(--sp-xl);
+  margin-block-end: var(--sp-xl);
 }
 
 .h-2 {
   font-size: var(--fs-lg);
   line-height: 1.2;
-  margin-bottom: var(--sp-lg);
+  margin-block-end: var(--sp-lg);
 }
 
 .h-3 {
   font-size: var(--fs-md);
   line-height: 1.3;
   letter-spacing: 0.5px;
-  margin-bottom: var(--sp-md);
+  margin-block-end: var(--sp-md);
+}
+.subheading {
+  text-wrap: balance;
 }
 
 p {
-  max-width: 100ch;
+  max-width: 120ch;
   margin-block-end: var(--sp-sm);
-  /* text-wrap: pretty; */
+  text-wrap: pretty;
+}
+
+.list span {
+  max-width: 95ch;
 }
 
 /* Button */
@@ -168,8 +185,8 @@ p {
   color: var(--clr-text);
   padding: 0.8rem 1.6rem;
   border-radius: 25px;
-  box-shadow: 0 10px 15px 0 rgb(95, 134, 127, 0.2);
-  transition: all 200ms;
+  box-shadow: 0 10px 15px 0 var(--clr-box-shadow);
+  transition: all 350ms;
 
   &:hover,
   &:active {
@@ -188,8 +205,8 @@ p {
 
 /* Icon */
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.7rem;
+  height: 1.7rem;
   flex-shrink: 0;
 }
 
@@ -200,7 +217,7 @@ p {
 }
 
 .list li {
-  gap: var(--sp-sm);
+  gap: var(--sp-xsm);
   padding-inline-start: var(--sp-xsm);
 }
 
@@ -236,13 +253,14 @@ p {
 
 /* Header */
 .logo {
-  height: 6rem;
+  height: 8rem;
 }
 
 /* Main and Footer max-width */
 .main,
 .footer {
-  max-width: 38.75rem; /* 620px */
+  max-width: 90rem;
+  /* 1440px */
 }
 
 /* Main */
@@ -252,7 +270,6 @@ p {
 
 /* Footer */
 .footer {
-  text-align: center;
   font-size: var(--fs-xsm);
 }
 
@@ -262,21 +279,25 @@ p {
 
 /* Hero section */
 .section-hero {
-  background-image: url(/images/office-interior-portrait.jpg);
+  background-image: url(/images/office-interior-portrait2.jpg);
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.7) 40%,
-      rgba(0, 0, 0, 0.3) 100%
+      oklch(0% 0 0 / 0.8) 0%,
+      oklch(0% 0 0 / 0.7) 40%,
+      oklch(0% 0 0 / 0.3) 100%
     ),
-    url(/images/office-interior-portrait.jpg);
+    url(/images/office-interior-portrait2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 65vh;
+  min-height: 50vh;
   padding: var(--sp-md);
   border-radius: 10px;
   gap: var(--sp-xl);
+}
+
+.section-hero .h-1 {
+  text-shadow: 0px 0px 2px var(--clr-link);
 }
 
 /* Bio section */
@@ -285,7 +306,22 @@ p {
   gap: var(--sp-sm);
 }
 
+.bio-image-box {
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: min-content;
+}
+
 /* Services section */
+.list-item {
+  display: flex;
+  align-items: start;
+}
+
+.section-services .btn {
+  margin-inline: auto;
+}
 
 /* Contact section */
 .contact-box {
@@ -296,8 +332,9 @@ p {
 .contact-box-item {
   border-radius: 4px;
   padding: var(--sp-xsm);
-  background-color: hsla(168, 23%, 22%, 95%);
-  box-shadow: 0 0 0 0.05rem var(--clr-bg-tint);
+  background-color: var(--clr-bg-shade-2);
+  border: 1px solid var(--clr-bg-tint);
+  /* box-shadow: 0 0 0 0.05rem var(--clr-bg-tint); */
 }
 
 .contact-item-content {
@@ -310,6 +347,144 @@ p {
   transition: all 200ms;
 }
 
-.inline-block {
-  display: inline-block;
+/* ======================= */
+/* Politiki aporritou page */
+/* ======================= */
+
+.privacy-subsection {
+  margin-block-end: var(--sp-xl);
+}
+
+/* ================================= */
+/* MEDIA QUERIES */
+/* ================================= */
+/* -------Portrait Tablet and Large Phones breakpoint */
+/* 640px */
+@media (width >= 40rem) {
+  /* ======================= */
+  /* Sitewide styling */
+  /* ======================= */
+  :root {
+    --fs-xsm: 0.8125rem;
+    --fs-sm: 1.125rem;
+    --fs-md: 1.5rem;
+    --fs-lg: 2rem;
+    --fs-xl: 2.5rem;
+    --sp-xsm: 0.625rem;
+    --sp-sm: 1.25rem;
+    --sp-md: 2rem;
+    --sp-lg: 2.25rem;
+    --sp-xl: 4rem;
+  }
+  /* Header */
+  .logo {
+    height: 10rem;
+  }
+
+  /* ======================= */
+  /* Homepage */
+  /* ======================= */
+  /* Hero section */
+  .section-hero {
+    background-image: linear-gradient(
+        to right,
+        oklch(0% 0 0 / 0.8) 0%,
+        oklch(0% 0 0 / 0.7) 60%,
+        oklch(0% 0 0 / 0.3) 100%
+      ),
+      url(/images/office-interior-landscape-tablet2.jpg);
+    min-height: 60vh;
+    justify-content: center;
+  }
+  /* Bio section */
+  .section-bio {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "image text";
+  }
+
+  .bio-image-box {
+    grid-area: image;
+  }
+
+  .bio-text-box {
+    grid-area: text;
+  }
+
+  /* Services section */
+  .list-item {
+    align-items: center;
+  }
+
+  /* Contact section */
+  .contact-box {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-address {
+    grid-column: 1/-1;
+  }
+}
+
+/* -------Laptops-Desktops breakpoint */
+/* 992px */
+@media (width >= 62rem) {
+  /* ======================= */
+  /* Sitewide styling */
+  /* ======================= */
+  :root {
+    --fs-xsm: 0.875rem;
+    --fs-sm: 1.25rem;
+    --fs-md: 1.75rem;
+    --fs-lg: 2.25rem;
+    --fs-xl: 2.75rem;
+    --sp-xsm: 0.75rem;
+    --sp-sm: 1.5rem;
+    --sp-md: 2rem;
+    --sp-lg: 2.5rem;
+    --sp-xl: 4.5rem;
+  }
+
+  /* Icon */
+  .icon {
+    width: var(--sp-lg);
+    height: var(--sp-lg);
+    flex-shrink: 0;
+  }
+
+  /* Header */
+  .logo {
+    height: 12rem;
+  }
+
+  /* ======================= */
+  /* Homepage */
+  /* ======================= */
+  /* Hero section */
+  .section-hero {
+    background-image: linear-gradient(
+        to right,
+        oklch(0% 0 0 / 0.8) 0%,
+        oklch(0% 0 0 / 0.7) 60%,
+        oklch(0% 0 0 / 0.3) 100%
+      ),
+      url(/images/office-interior-landscape-desktop2.jpg);
+    /* min-height: 65vh; */
+  }
+
+  .subheading {
+    max-width: 50ch;
+  }
+
+  /* Bio section */
+  .section-bio {
+    grid-template-columns: 1fr 2.8fr;
+  }
+
+  /* Contact section */
+  .contact-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-address {
+    grid-column: 1/2;
+  }
 }
