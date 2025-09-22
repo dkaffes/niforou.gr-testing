@@ -16,7 +16,7 @@
   /* --clr-bg-shade: #2c4641; */
   --clr-bg-shade-1: hsla(168, 22%, 22%, 85%);
   --clr-bg-shade-2: hsla(168, 22%, 22%, 95%);
-  /* --clr-bx-shadow: hsla(169, 17%, 45%, 0.2); */
+  /* --clr-box-shadow: hsla(169, 17%, 45%, 0.2); */
   --clr-box-shadow: hsla(168, 22%, 22%, 25%);
   --clr-heading: hsl(0, 0%, 90%);
   --clr-text: hsl(0, 0%, 80%);
@@ -181,7 +181,11 @@ p {
   display: inline-block;
   width: fit-content;
   text-decoration: none;
-  background-image: linear-gradient(to right, #bb5b27, #bb6a3e);
+  background-image: linear-gradient(
+    to right,
+    oklch(57.986% 0.13937 46.021),
+    oklch(60.71% 0.11894 47.827)
+  );
   color: var(--clr-text);
   padding: 0.8rem 1.6rem;
   border-radius: 25px;
@@ -190,7 +194,11 @@ p {
 
   &:hover,
   &:active {
-    background-image: linear-gradient(to right, #bb6a3e, #bb5b27);
+    background-image: linear-gradient(
+      to right,
+      oklch(60.71% 0.11894 47.827),
+      oklch(57.986% 0.13937 46.021)
+    );
   }
 }
 
@@ -205,8 +213,8 @@ p {
 
 /* Icon */
 .icon {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: var(--fs-lg);
+  height: var(--fs-lg);
   flex-shrink: 0;
 }
 
@@ -234,8 +242,6 @@ p {
 
 .link:focus {
   outline: none;
-  /* outline: 4px dotted #e67e22; */
-  /* outline-offset: 2px; */
   box-shadow: 0 0 0 0.2rem var(--clr-link-tint);
   border-bottom: 2px solid transparent;
   border-radius: 4px;
@@ -279,15 +285,15 @@ p {
 
 /* Hero section */
 .section-hero {
-  background-image: url(/images/office-interior-portrait2.jpg);
+  /* background-image: url(/images/office-interior-portrait2.jpg); */
   background-image: linear-gradient(
       to bottom,
       oklch(0% 0 0 / 0.8) 0%,
       oklch(0% 0 0 / 0.7) 40%,
       oklch(0% 0 0 / 0.3) 100%
     ),
-    url(/images/office-interior-portrait2.jpg);
-  background-position: center;
+    url(/images/office-interior-portrait.webp);
+  background-position: 80% center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 50vh;
@@ -334,7 +340,6 @@ p {
   padding: var(--sp-xsm);
   background-color: var(--clr-bg-shade-2);
   border: 1px solid var(--clr-bg-tint);
-  /* box-shadow: 0 0 0 0.05rem var(--clr-bg-tint); */
 }
 
 .contact-item-content {
@@ -366,7 +371,7 @@ p {
   /* ======================= */
   :root {
     --fs-xsm: 0.8125rem;
-    --fs-sm: 1.125rem;
+    --fs-sm: 1.0625rem;
     --fs-md: 1.5rem;
     --fs-lg: 2rem;
     --fs-xl: 2.5rem;
@@ -378,7 +383,7 @@ p {
   }
   /* Header */
   .logo {
-    height: 10rem;
+    height: 5.5rem;
   }
 
   /* ======================= */
@@ -392,7 +397,7 @@ p {
         oklch(0% 0 0 / 0.7) 60%,
         oklch(0% 0 0 / 0.3) 100%
       ),
-      url(/images/office-interior-landscape-tablet2.jpg);
+      url(/images/office-interior-landscape-tablet.webp);
     min-height: 60vh;
     justify-content: center;
   }
@@ -432,28 +437,17 @@ p {
   /* Sitewide styling */
   /* ======================= */
   :root {
-    --fs-xsm: 0.875rem;
-    --fs-sm: 1.25rem;
-    --fs-md: 1.75rem;
-    --fs-lg: 2.25rem;
-    --fs-xl: 2.75rem;
-    --sp-xsm: 0.75rem;
-    --sp-sm: 1.5rem;
-    --sp-md: 2rem;
+    --fs-md: 1.625rem;
+    --fs-lg: 2.125rem;
+    --fs-xl: 2.625rem;
+    --sp-sm: 1.375rem;
+    --sp-md: 2.125rem;
     --sp-lg: 2.5rem;
-    --sp-xl: 4.5rem;
+    --sp-xl: 4.25rem;
   }
-
-  /* Icon */
-  .icon {
-    width: var(--sp-lg);
-    height: var(--sp-lg);
-    flex-shrink: 0;
-  }
-
   /* Header */
   .logo {
-    height: 12rem;
+    height: 6.25rem;
   }
 
   /* ======================= */
@@ -467,8 +461,7 @@ p {
         oklch(0% 0 0 / 0.7) 60%,
         oklch(0% 0 0 / 0.3) 100%
       ),
-      url(/images/office-interior-landscape-desktop2.jpg);
-    /* min-height: 65vh; */
+      url(/images/office-interior-landscape-desktop.webp);
   }
 
   .subheading {
@@ -486,5 +479,30 @@ p {
   }
   .contact-address {
     grid-column: 1/2;
+  }
+}
+
+/* -------Large Laptops-Desktops breakpoint */
+/* 1600px */
+@media (width >= 100rem) {
+  /* ======================= */
+  /* Sitewide styling */
+  /* ======================= */
+  :root {
+    --fs-xsm: 0.875rem;
+    --fs-sm: 1.125rem;
+    --fs-md: 1.75rem;
+    --fs-lg: 2.25rem;
+    --fs-xl: 2.75rem;
+    --sp-xsm: 0.75rem;
+    --sp-sm: 1.5rem;
+    --sp-md: 2.25rem;
+    --sp-lg: 2.75rem;
+    --sp-xl: 4.5rem;
+  }
+
+  /* Header */
+  .logo {
+    height: 7rem;
   }
 }
